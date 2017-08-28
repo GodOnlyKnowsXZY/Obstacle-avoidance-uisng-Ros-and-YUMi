@@ -1,0 +1,2 @@
+gazebo_ros_demos/custom_plugin_tutorial:gazebo_ros_demos/rrbot_control:gazebo_ros_demos/rrbot_description:gazebo_ros_demos/rrbot_gazebo:pcltest:pysdf:test1_moveit_config:testpack:testpack_config:tf_tut:yumi_description:yumi_gazebo:yumi_moveit_config
+-DCATKIN_DEVEL_PREFIX=/home/karthik/ws/devel -DCMAKE_INSTALL_PREFIX=/home/karthik/ws/install -G Unix Makefiles

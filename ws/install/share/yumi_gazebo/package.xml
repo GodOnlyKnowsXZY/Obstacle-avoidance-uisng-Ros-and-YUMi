@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>yumi_gazebo</name>
+  <version>1.0.0</version>
+  <description>The yumi_gazebo package</description>
+  <maintainer email="karthik@todo.todo">karthik</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>gazebo_plugins</build_depend>
+  <build_depend>gazebo_ros</build_depend>
+  <build_depend>gazebo_ros_control</build_depend>
+  <build_depend>yumi_description</build_depend>
+  
+  <run_depend>xacro</run_depend>
+  <run_depend>gazebo_plugins</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+  <run_depend>yumi_description</run_depend>
+
+  <export>  </export>
+</package>

@@ -1,0 +1,4 @@
+MODULE dummy
+PROC Main()
+ENDPROC
+ENDMODULE

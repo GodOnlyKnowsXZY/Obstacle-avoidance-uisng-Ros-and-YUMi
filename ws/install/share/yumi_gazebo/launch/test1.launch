@@ -1,0 +1,31 @@
+<launch>
+  
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find yumi_gazebo)/worlds/yumi.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="debug" value="$(arg debug)"/>
+  </include>
+  
+   <param name="robot_description" textfile="$(find yumi_description)/urdf/yumi.urdf" />
+  
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
+args="-param robot_description -urdf -model yumi1" />
+
+  <rosparam file="$(find yumi_gazebo)/config/yumi_control.yaml" command="load" />
+  
+  <node name="controller" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/yumi" args="joint_state_controller 1L_controller 2L_controller 7L_controller 3L_controller 4L_controller 5L_controller 6L_controller 1R_controller 2R_controller 7R_controller 3R_controller 4R_controller 5R_controller 6R_controller" />
+  
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+	respawn="false" output="screen">
+    <remap from="/joint_states" to="/yumi/joint_states" />
+  </node>
+</launch>

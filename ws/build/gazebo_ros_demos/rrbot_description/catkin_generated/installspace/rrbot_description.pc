@@ -1,0 +1,8 @@
+prefix=/home/karthik/ws/install
+
+Name: rrbot_description
+Description: Description of rrbot_description
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/karthik/ws/install/lib 
+Requires: 

@@ -1,0 +1,8 @@
+prefix=/home/karthik/ws/devel
+
+Name: pysdf
+Description: Description of pysdf
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/karthik/ws/devel/lib 
+Requires: 

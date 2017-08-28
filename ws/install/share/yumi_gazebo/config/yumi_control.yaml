@@ -1,0 +1,75 @@
+yumi:
+
+  joint_state_controller:
+     type: joint_state_controller/JointStateController
+     publish_rate: 20
+  
+  1L_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_1L
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  
+  2L_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_2L
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    
+  7L_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_7L
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    
+  3L_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_3L
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    
+  4L_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_4L
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    
+  5L_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_5L
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    
+  6L_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_6L
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    
+  1R_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_1R
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    
+  2R_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_2R
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    
+  7R_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_7R
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    
+  3R_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_3R
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    
+  4R_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_4R
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    
+  5R_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_5R
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+    
+  6R_controller:
+    type: effort_controllers/JointPositionController
+    joint: joint_6R
+    pid: {p: 100.0, i: 0.01, d: 10.0}

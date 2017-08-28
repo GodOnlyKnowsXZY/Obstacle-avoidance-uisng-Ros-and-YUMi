@@ -1,0 +1,8 @@
+prefix=/home/karthik/ws/devel
+
+Name: testpack_config
+Description: Description of testpack_config
+Version: 0.2.0
+Cflags: 
+Libs: -L/home/karthik/ws/devel/lib 
+Requires: 

@@ -1,0 +1,35 @@
+<CollisionAvoidance xmlns="urn:abb-robotics-collisionavoidance" version="1.0">
+  <Object name="ROB_L_Fingers">
+    <Geometry file="ROB_L_Fingers.xml" />
+    <Attachment mechUnit="ROB_L" frameNumber="7">
+      <Offset quat="0.707107 0 0.707107 0" />
+    </Attachment>
+  </Object>
+  <Object name="ROB_R_Fingers">
+    <Geometry file="ROB_R_Fingers.xml" />
+    <Attachment mechUnit="ROB_R" frameNumber="7">
+      <Offset quat="0.707107 0 0.707107 0" />
+    </Attachment>
+  </Object>
+  <!--Possible collisions for ROB_L_Fingers-->
+  <Pair object1="ROB_L_Fingers" object2="ROB_L_Link1" />
+  <Pair object1="ROB_L_Fingers" object2="ROB_L_Link2" />
+  <Pair object1="ROB_L_Fingers" object2="ROB_R_Link1" />
+  <Pair object1="ROB_L_Fingers" object2="ROB_R_Link2" />
+  <Pair object1="ROB_L_Fingers" object2="ROB_R_Link3" />
+  <Pair object1="ROB_L_Fingers" object2="ROB_R_Link4" />
+  <Pair object1="ROB_L_Fingers" object2="ROB_R_Link5" />
+  <Pair object1="ROB_L_Fingers" object2="ROB_R_Link6" />
+  <Pair object1="ROB_L_Fingers" object2="ROB_R_GripperBase" safetyDistance="0.001" />
+  <!--Possible collisions for ROB_R_Fingers-->
+  <Pair object1="ROB_R_Fingers" object2="ROB_R_Link1" />
+  <Pair object1="ROB_R_Fingers" object2="ROB_R_Link2" />
+  <Pair object1="ROB_R_Fingers" object2="ROB_L_Link1" />
+  <Pair object1="ROB_R_Fingers" object2="ROB_L_Link2" />
+  <Pair object1="ROB_R_Fingers" object2="ROB_L_Link3" />
+  <Pair object1="ROB_R_Fingers" object2="ROB_L_Link4" />
+  <Pair object1="ROB_R_Fingers" object2="ROB_L_Link5" />
+  <Pair object1="ROB_R_Fingers" object2="ROB_L_Link6" />
+  <Pair object1="ROB_R_Fingers" object2="ROB_L_GripperBase" safetyDistance="0.001" />
+  <Pair object1="ROB_R_Fingers" object2="ROB_L_Fingers" safetyDistance="0.0002" />
+</CollisionAvoidance>
