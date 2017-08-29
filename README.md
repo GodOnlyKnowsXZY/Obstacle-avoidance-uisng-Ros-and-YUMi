@@ -31,9 +31,6 @@ sudo apt-get install ros-indigo-moveit-full
 sudo apt-get install ros-indigo-openni-camera ros-indigo-openni-launch
 sudo apt-get install ros-indigo-industrial-robot-client
 sudo apt-get install ros-indigo-abb-driver
-
-
-
 ```
 
 Edit freenect-xyz.launch and include
@@ -127,6 +124,17 @@ or
 roslaunch test1_moveit_config execute.launch robot_ip:=10.140.60.194
 cd ~/ws/test1_moveit_config/scripts/
 python test.py
+
+
+- Set destination, move away. Press Enter.
+
+- Enable lead through, put the arm in origin position, disable lead through and move away.
+
+- In flexPendent:
+    Open production window.
+    Set PP to main.
+- Press enter on ubuntu machine.
+    Immediately press play on flex pendent.
 
 
 ```
