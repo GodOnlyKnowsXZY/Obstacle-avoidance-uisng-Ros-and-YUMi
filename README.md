@@ -118,7 +118,7 @@ Steps to do that:
 - Right click on controller and click restore backup and select obstacle avoidance working.
 
 After restoring backup, below image should be replicated on flexpendent.
-![alt text](3.jpg)
+![alt text](2.jpg)
 
 
 
@@ -136,7 +136,7 @@ python test.py
 ```
 After launching execute.launch below image should be replicated for successful launch.
 
-![alt text](2.jpg )
+![alt text](1.jpg )
 
 ```
 
