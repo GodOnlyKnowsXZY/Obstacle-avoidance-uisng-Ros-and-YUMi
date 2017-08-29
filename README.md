@@ -121,7 +121,6 @@ After restoring backup, below image should be replicated on flexpendent.
 ![alt text](2.jpg)
 
 
-
 ### Launching files.
 ```
 roslaunch test1_moveit_config execute.launch robot_ip:=10.140.60.194
@@ -138,6 +137,10 @@ After launching execute.launch below image should be replicated for successful l
 
 ![alt text](1.jpg )
 
+and on the ubuntu machine,voxels should be visible.
+
+![alt text](4.png)
+
 ```
 
 - Set destination, move away. Press Enter.
@@ -148,7 +151,7 @@ After launching execute.launch below image should be replicated for successful l
     Open production window.
     Set PP to main.
 - Press enter on ubuntu machine.
-    Immediately press play on flex pendent.
+    On Production window, Immediately press play on flex pendent.
 
 
 ```
@@ -169,8 +172,8 @@ After launching execute.launch below image should be replicated for successful l
 
 ## Authors
 
-* **Kartik J** - *Initial work* - [Kartik](mailto:karthikj219@gmail.com)
 * **Shridhar Mishra** -  [Email](mailto:shridharmishra4@gmail.com)
+* **Kartik J** - *Initial work* - [Kartik](mailto:karthikj219@gmail.com)
 
 
 ##REFERENCES:
