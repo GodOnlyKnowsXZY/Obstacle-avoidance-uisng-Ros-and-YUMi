@@ -33,12 +33,17 @@ sudo apt-get install ros-indigo-industrial-robot-client
 sudo apt-get install ros-indigo-abb-driver
 ```
 
-Edit freenect-xyz.launch and include
+Edit freenect-xyz.launch 
 
+```
+sudo gedit /opt/ros/indigo/share/freenect_launch/launch/examples/freenect-xyz.launch
+
+```
+and include before <\/launch>
 ```
 <node pkg="tf" type="static_transform_publisher" name="yumi" args="1.42 -0.05 -0.26 -3.14 -1.57 3.14  /camera_link /world 100"/>
 ```
-This is the transform between camera node and the robot node.
+This is the static transform between camera node and the robot node.
 
 ROS:
 
@@ -52,38 +57,39 @@ ROS:
 - Important- have to set one of the above 2, as sim is false by default, and if false, it looks for a robot IP.
 - The Kinect data being used is part of the launch file freenect-xyz.launch under the freenect_launch package. The TF between the Kinect and the robot is defined there, tweak according to requirements.
 - The Python scripts in test1_moveit_config/scripts are coded using the Python MoveIt! API. The basic libraries used are moveit_commander, geometry_msgs, rospy, moveit_msgs.
+
 #### Package structure:
 - ~/ws/src
-- testpack
-- yumi.urdf
-- CmakeLists.txt
-- package.xml
-- launch
-- meshes
-- worlds
-- config
-- scripts
-- test1_moveit_config
-- CMakeLists.txt
-- package.xml
-- config
-- launch
-- execute.launch
-- test.launch
-- scene
-- scripts
-- mainNode.py
-- test.py
+    - yumi_description
+        - package.xml
+        - launch
+        - meshes
+        - urdf
+        - CmakeLists.txt
+        - package.xml
+    - test1_moveit_config
+        - CMakeLists.txt
+        - package.xml
+        - config
+        - launch
+            - execute.launch
+            - test.launch
+        - scene
+        - scripts
+            - mainNode.py
+            - test.py
 
 
 
 #### RobotStudio (RAPID):
 - There will be 9 RAPID files in total: 3 .sys files (common, messages and socket, which are common to all tasks) and 6 .mod files (2 each of stateServer, motionServer and motion, 1 for each arm).
 - Use the install server tutorial on https://wiki.ros.org/abb for reference as to how to install and run the server.
+
 - Here's the configuration->controller setup:
+
 ##### Tasks:
 	
-Task	Type	TrustLevel	Use Mechanical Unit Group
+Task  Type	TrustLevel	Use Mechanical Unit Group
 - MotionServer_left	SEMISTATIC	SysStop	rob_l
 - MotionServer_right	SEMISTATIC	SysStop	rob_r
 - StateServer_left	SEMISTATIC	NoSafety	rob_l
@@ -91,16 +97,17 @@ Task	Type	TrustLevel	Use Mechanical Unit Group
 - T_ROB_L	NORMAL	N/A	rob_l
 - T_ROB_R	NORMAL	N/A	rob_r
 ##### Automatic Loading of Modules:
-File	Task	All Tasks
-HOME:/ROS/ROS_common.sys		YES
-HOME:/ROS/ROS_socket.sys		YES
-HOME:/ROS/ROS_messages.sys		YES
-HOME:/ROS/ROS_stateServer.mod	StateServer_left	NO
-HOME:/ROS/ROS_stateServer_right.mod	StateServer_right	NO
-HOME:/ROS/ROS_motionServer.mod	MotionServer_left	NO
-HOME:/ROS/ROS_motionServer_right.mod	MotionServer_right	NO
-HOME:/ROS/ROS_motion.mod	T_ROB_L	NO
-HOME:/ROS/ROS_motion_right.mod	T_ROB_R	NO
+
+FileTaskAll Tasks
+- HOME:/ROS/ROS_common.sys		YES
+- HOME:/ROS/ROS_socket.sys		YES
+- HOME:/ROS/ROS_messages.sys		YES
+- HOME:/ROS/ROS_stateServer.mod	StateServer_left	NO
+- HOME:/ROS/ROS_stateServer_right.mod	StateServer_right	NO
+- HOME:/ROS/ROS_motionServer.mod	MotionServer_left	NO
+- HOME:/ROS/ROS_motionServer_right.mod	MotionServer_right	NO
+- HOME:/ROS/ROS_motion.mod	T_ROB_L	NO
+- HOME:/ROS/ROS_motion_right.mod	T_ROB_R	NO
 
 
 ### Restoring Backup:
@@ -110,6 +117,8 @@ Steps to do that:
 - Request write access.
 - Right click on controller and click restore backup and select obstacle avoidance working.
 
+After restoring backup, below image should be replicated on flexpendent.
+![alt text](3.jpg)
 
 
 
@@ -124,7 +133,12 @@ or
 roslaunch test1_moveit_config execute.launch robot_ip:=10.140.60.194
 cd ~/ws/test1_moveit_config/scripts/
 python test.py
+```
+After launching execute.launch below image should be replicated for successful launch.
 
+![alt text](2.jpg )
+
+```
 
 - Set destination, move away. Press Enter.
 
@@ -139,6 +153,19 @@ python test.py
 
 ```
 
+###Troubleshooting:
+
+#### Common errors:
+
+- [ERROR] [1504001056.268201344]: Transform cache was not updated. Self-filtering may fail.
+    
+    - One of the four hidden services is not connected. Relaunch execute.launch.
+
+- [ERROR] [1503498768.125601344]: Transform Error: "yumi_link_5_r" passed to lookupTransform argument doesn't exist.
+    
+    - One of the four hidden services is not connected. Relaunch execute.launch.
+
+
 
 ## Authors
 
@@ -146,3 +173,7 @@ python test.py
 * **Shridhar Mishra** -  [Email](mailto:shridharmishra4@gmail.com)
 
 
+##REFERENCES:
+- For ROS – https://wiki.ros.org and https://answers.ros.org. Specifically for ROS-Industrial, look at https://groups.google.com/forum/#!forum/swri-ros-pkg-dev.
+- MoveIt! Google group: https://groups.google.com/forum/#!forum/moveit-users and MoveIt! references and API – https://moveit.ros.org
+- Rapid files for ROS: https://github.com/ros-industrial/abb/tree/indigo-devel/abb_driver/rapid
